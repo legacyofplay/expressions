@@ -1,7 +1,6 @@
 library expressions.evaluator;
 
 import 'expressions.dart';
-import 'async_evaluator.dart';
 import 'package:meta/meta.dart';
 
 /// Handles evaluation of expressions
@@ -48,9 +47,6 @@ class ExpressionEvaluator {
   final List<MemberAccessor> memberAccessors;
 
   const ExpressionEvaluator({this.memberAccessors = const []});
-
-  const factory ExpressionEvaluator.async(
-      {List<MemberAccessor> memberAccessors}) = AsyncExpressionEvaluator;
 
   dynamic eval(Expression expression, Map<String, dynamic> context) {
     if (expression is Literal) return evalLiteral(expression, context);
